@@ -1,0 +1,16 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    BLOG EDIT
+{% endblock title %}
+
+{% block content %}
+<main class="main form-container">
+    <form action="" method="POST" class="form-blog">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+</main>
+
+{% endblock content %}

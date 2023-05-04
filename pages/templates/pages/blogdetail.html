@@ -1,0 +1,21 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    BLOG DETAIL
+{% endblock title %}
+
+{% block content %}
+
+<main class="main">
+  <article class="card__detail">
+    <div>
+      <p class="italic">AUTHOR:<span class="underline">{{ blog.author|upper }}</span></p>
+      <p class="italic">TITLE:<span class="underline">{{ blog.title|upper }}</span></p>
+    </div>
+    <div>
+      <p>{{ blog.content }}</p>
+    </div>
+  </article>
+</main>
+
+{% endblock content %}

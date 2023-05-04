@@ -1,0 +1,36 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+    ALL BLOGS
+{% endblock title %}
+
+{% block content %}
+<main class="main">
+    {% if blogs %}
+        {% for blog in blogs %}
+            <article class="card">
+                <div>
+                    <p class="card__title"><a href="{% url 'pages:blogdetail' blog.id  %}">{{ blog.title }}</a></p>
+                    <p><span class="italic">by</span> {{ blog.author }}</p>
+                </div>
+                {% if blog.author == request.user %}
+                <div class="card__actions">
+                    <p><a href="{% url 'pages:blogupdate' blog.id%}">
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                    </a></p>
+                    <p><a href="{% url 'pages:blogdelete' blog.id%}">
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+                    </a></p>
+                </div>
+                {% endif %}
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>no blogs created</p>
+    {% endif %}
+</main>
+{% endblock content %}
